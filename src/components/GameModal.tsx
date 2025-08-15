@@ -1,6 +1,6 @@
 import React from 'react';
 import { GameState, GameStats } from '../types/game';
-import { getCellIcon, formatValue } from '../data/gameData';
+import { formatValue } from '../data/gameData';
 
 interface GameModalProps {
   isOpen: boolean;

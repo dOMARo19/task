@@ -73,7 +73,7 @@ const GameBoard: React.FC = () => {
     setIsAnimating(true);
     
     setGameState(prev => {
-      const updatedCells = prev.cells.map(cell => 
+      let updatedCells = prev.cells.map(cell => 
         cell.id === cellId ? { ...cell, isRevealed: true } : cell
       );
 
@@ -91,7 +91,7 @@ const GameBoard: React.FC = () => {
         setShowBombEffect(true);
         
         // Відкриваємо всі клітинки при бомбі
-        const allRevealedCells = updatedCells.map(cell => ({ ...cell, isRevealed: true }));
+        updatedCells = updatedCells.map(cell => ({ ...cell, isRevealed: true }));
         setTimeout(() => {
           setShowModal(true);
         }, 2000);
@@ -103,7 +103,7 @@ const GameBoard: React.FC = () => {
       } else if (clickedCell.type === 'stop') {
         newIsGameOver = true;
         // Відкриваємо всі клітинки при стопі
-        const allRevealedCells = updatedCells.map(cell => ({ ...cell, isRevealed: true }));
+        updatedCells = updatedCells.map(cell => ({ ...cell, isRevealed: true }));
         setTimeout(() => {
           setShowModal(true);
         }, 500);
